@@ -1,0 +1,43 @@
+{
+  "name": "case_backenddb",
+  "version": "1.0.0",
+  "description": "Nodejs api for testing performance of mongo and sql server",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc index.ts && node index.js",
+    "start:dev": "./node_modules/nodemon/bin/nodemon.js",
+    "tslint": "tslint --project tsconfig.json --config tslint.json",
+    "tslint-fix": "tslint --project tsconfig.json --config tslint.json --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/estra99/case_backenddb.git"
+  },
+  "keywords": [
+    "api",
+    "mongo",
+    "sql",
+    "server",
+    "db2",
+    "dbperformance"
+  ],
+  "author": "Esteban Salas and Ronulfo Leon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/estra99/case_backenddb/issues"
+  },
+  "homepage": "https://github.com/estra99/case_backenddb#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.9"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.8",
+    "@types/mongoose": "^5.7.36",
+    "nodemon": "^2.0.5",
+    "ts-node": "^9.0.0",
+    "tslint": "^6.1.3",
+    "typescript": "^4.0.3"
+  }
+}

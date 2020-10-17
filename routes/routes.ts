@@ -1,7 +1,8 @@
 import * as express from 'express'
 import * as bodyParser from 'body-parser'
 import {Logger} from '../common'
-import {MongoController} from './mongocontroller'
+import {MongoRouter} from './mongorouter'
+import {ElasticRouter} from './elasticrouter'
 
 class Routes{
 
@@ -27,7 +28,9 @@ class Routes{
 
     private routes() : void {
 
-        this.express.use('/mongodb', MongoController);
+        this.express.use('/mongodb', MongoRouter);
+
+        this.express.use('/elastic', ElasticRouter);
 
     }
 }

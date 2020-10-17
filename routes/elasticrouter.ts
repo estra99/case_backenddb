@@ -2,9 +2,9 @@ import * as express from 'express';
 
 const app = express();
 
-app.put("/rellenar", (req, res,next) => {
+app.put('/getHashtags', (req, res,next) => {
     // HateController.getInstance().fillHatePosts();
     res.json({ message: "Ok"});
 });
 
-export { app as MongoController };
+export { app as ElasticRouter };

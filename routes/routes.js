@@ -3,7 +3,8 @@ exports.__esModule = true;
 var express = require("express");
 var bodyParser = require("body-parser");
 var common_1 = require("../common");
-var mongocontroller_1 = require("./mongocontroller");
+var mongorouter_1 = require("./mongorouter");
+var elasticrouter_1 = require("./elasticrouter");
 var Routes = /** @class */ (function () {
     function Routes() {
         this.express = express();
@@ -17,7 +18,8 @@ var Routes = /** @class */ (function () {
         this.express.use(bodyParser.urlencoded({ extended: false }));
     };
     Routes.prototype.routes = function () {
-        this.express.use('/mongodb', mongocontroller_1.MongoController);
+        this.express.use('/mongodb', mongorouter_1.MongoRouter);
+        this.express.use('/elastic', elasticrouter_1.ElasticRouter);
     };
     return Routes;
 }());

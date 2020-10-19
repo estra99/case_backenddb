@@ -7,6 +7,8 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
     o[k2] = m[k];
 }));
 exports.__esModule = true;
-exports.Logger = void 0;
+exports.Logger = exports.Articles = void 0;
+var articles_1 = require("./library/articles");
+__createBinding(exports, articles_1, "Articles");
 var Logger_1 = require("./Logger/Logger");
 __createBinding(exports, Logger_1, "Logger");

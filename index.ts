@@ -1,7 +1,7 @@
 import App from './app';
 import * as http from 'http';
 import { Logger } from './common'
-import {connectMongodb} from './db'
+// import { MongoController } from './Controllers/mongoController';
 
 
 const port = 3070;
@@ -11,7 +11,7 @@ App.set('port', port);
 const server = http.createServer(App);
 server.listen(port);
 
-connectMongodb();
+// const mongoConection = MongoController.getInstance().fillArticles();
 
 server.on('listening', () => {
     const addr = server.address();

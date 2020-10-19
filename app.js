@@ -15,6 +15,9 @@ var App = /** @class */ (function () {
         this.express.use(bodyParser.urlencoded({ extended: false }));
     };
     App.prototype.routes = function () {
+        this.express.get('/', function (req, res, next) {
+            res.send("Home page");
+        });
         this.express.use('/api', routes_1["default"]);
         this.express.use('*', function (req, res, next) {
             res.send("Request invalido");

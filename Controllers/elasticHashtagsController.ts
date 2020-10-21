@@ -1,5 +1,6 @@
 import {Logger} from '../common'
 import {Client} from '@elastic/elasticsearch'
+import dotenv = require('dotenv');
 
 export class ElasticController{
     private static instance: ElasticController;
@@ -8,8 +9,9 @@ export class ElasticController{
 
     private constructor()
     {
+        dotenv.config();
         this.log = new Logger();
-        this.elasticClient = new Client({node: 'http://localhost:9200/'});
+        this.elasticClient = new Client({node: process.env.ELASTIC_API});
     }
 
     public async get_hashtags(first: number, second: number) : Promise<any> {

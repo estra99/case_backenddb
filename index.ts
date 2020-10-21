@@ -2,9 +2,12 @@ import App from './app';
 import * as http from 'http';
 import { Logger } from './common'
 import { MongoController } from './Controllers/mongoController';
+import dotenv = require('dotenv');
 
 
-const port = 3070;
+dotenv.config();
+const port = process.env.PORT;
+
 const logger = new Logger();
 
 App.set('port', port);

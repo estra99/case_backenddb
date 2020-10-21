@@ -39,10 +39,12 @@ exports.__esModule = true;
 exports.ElasticController = void 0;
 var common_1 = require("../common");
 var elasticsearch_1 = require("@elastic/elasticsearch");
+var dotenv = require("dotenv");
 var ElasticController = /** @class */ (function () {
     function ElasticController() {
+        dotenv.config();
         this.log = new common_1.Logger();
-        this.elasticClient = new elasticsearch_1.Client({ node: 'http://localhost:9200/' });
+        this.elasticClient = new elasticsearch_1.Client({ node: process.env.ELASTIC_API });
     }
     ElasticController.prototype.get_hashtags = function (first, second) {
         return __awaiter(this, void 0, void 0, function () {

@@ -38,6 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 exports.MongoRouter = void 0;
 var express = require("express");
+<<<<<<< HEAD
 var common_1 = require("../common");
 var app = express();
 exports.MongoRouter = app;
@@ -56,3 +57,12 @@ app.get('/getHashtags', function (req, res, next) { return __awaiter(void 0, voi
         }
     });
 }); });
+=======
+var mongoController_1 = require("../Controllers/mongoController");
+var app = express();
+exports.MongoRouter = app;
+app.put('/rellenar', function (req, res, next) {
+    mongoController_1.MongoController.getInstance().fillArticles();
+    res.json({ message: "Ok" });
+});
+>>>>>>> e2a704374076d6fa6b2e6f4ebcc588c49e9ccd18

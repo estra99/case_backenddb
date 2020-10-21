@@ -2,7 +2,7 @@ import * as express from 'express'
 import * as bodyParser from 'body-parser'
 import {Logger} from '../common'
 import {MongoRouter} from './mongorouter'
-import {ElasticRouter} from './elasticrouter'
+
 
 class Routes{
 
@@ -12,7 +12,7 @@ class Routes{
     constructor() {
 
         this.express = express();
-        this.logger = new Logger;
+        this.logger = new Logger();
         this.middleware();
         this.routes();
 
@@ -29,9 +29,6 @@ class Routes{
     private routes() : void {
 
         this.express.use('/mongodb', MongoRouter);
-
-        this.express.use('/elastic', ElasticRouter);
-
     }
 }
 

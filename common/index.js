@@ -7,6 +7,8 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
     o[k2] = m[k];
 }));
 exports.__esModule = true;
-exports.Logger = void 0;
+exports.ElasticController = exports.Logger = void 0;
 var Logger_1 = require("./Logger/Logger");
 __createBinding(exports, Logger_1, "Logger");
+var elasticHashtagsController_1 = require("./Controllers/elasticHashtagsController");
+__createBinding(exports, elasticHashtagsController_1, "ElasticController");

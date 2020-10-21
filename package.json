@@ -29,13 +29,16 @@
   },
   "homepage": "https://github.com/estra99/case_backenddb#readme",
   "dependencies": {
+    "@elastic/elasticsearch": "^7.9.1",
     "elasticsearch": "^16.7.1",
     "express": "^4.17.1",
+    "ioredis": "^4.17.3",
     "mongoose": "^5.10.9"
   },
   "devDependencies": {
     "@types/elasticsearch": "^5.0.36",
     "@types/express": "^4.17.8",
+    "@types/ioredis": "^4.17.6",
     "@types/mongoose": "^5.7.36",
     "nodemon": "^2.0.5",
     "ts-node": "^9.0.0",

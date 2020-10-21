@@ -37,11 +37,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.ElasticController = void 0;
-var index_1 = require("../index");
+var common_1 = require("../common");
 var elasticsearch_1 = require("@elastic/elasticsearch");
 var ElasticController = /** @class */ (function () {
     function ElasticController() {
-        this.log = new index_1.Logger();
+        this.log = new common_1.Logger();
         this.elasticClient = new elasticsearch_1.Client({ node: 'http://localhost:9200/' });
     }
     ElasticController.prototype.get_hashtags = function (first, second) {
@@ -98,7 +98,7 @@ var ElasticController = /** @class */ (function () {
                             })];
                     case 2:
                         hashtags = _a.sent();
-                        return [2 /*return*/, hashtags];
+                        return [2 /*return*/, hashtags.body.ag];
                 }
             });
         });

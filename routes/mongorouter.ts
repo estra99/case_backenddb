@@ -1,6 +1,6 @@
 import * as express from 'express';
-import {ElasticController} from '../common'
-import { MongoController } from '../Controllers/mongoController';
+import {ElasticController} from '../Controllers'
+import { MongoController } from '../Controllers/';
 
 const app = express();
 

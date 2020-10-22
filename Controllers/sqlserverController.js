@@ -18,7 +18,7 @@ var SQLServerController = /** @class */ (function () {
                     }
                 },
                 options: {
-                    database: 'hashtags',
+                    database: 'ArticulosDB',
                     encrypt: false
                 }
             });

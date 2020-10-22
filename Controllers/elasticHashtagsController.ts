@@ -65,7 +65,17 @@ export class ElasticController{
               }
             }
         });
-        return hashtags.body.aggregations.hashtags_count.buckets
+
+        const buckets = hashtags.body.aggregations.hashtags.buckets
+
+        const hashtagsForSearch = []
+
+        // get just the key values for the query
+        for( const bucket of buckets){
+          hashtagsForSearch.push(bucket.key)
+        };
+
+        return hashtagsForSearch
     };
 
     public async matchAll() : Promise<any> {

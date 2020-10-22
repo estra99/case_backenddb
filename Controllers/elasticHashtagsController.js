@@ -44,11 +44,12 @@ var ElasticController = /** @class */ (function () {
     function ElasticController() {
         dotenv.config();
         this.log = new common_1.Logger();
+        // this.elasticClient = new Client({node: 'http://localhost:9200/'});
         this.elasticClient = new elasticsearch_1.Client({ node: process.env.ELASTIC_API });
     }
     ElasticController.prototype.get_hashtags = function (first, second) {
         return __awaiter(this, void 0, void 0, function () {
-            var bucketsDetails, maxMin, range, hashtags;
+            var bucketsDetails, maxMin, range, hashtags, buckets, hashtagsForSearch, _i, buckets_1, bucket;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.elasticClient.search({
@@ -100,7 +101,15 @@ var ElasticController = /** @class */ (function () {
                             })];
                     case 2:
                         hashtags = _a.sent();
-                        return [2 /*return*/, hashtags.body.ag];
+                        buckets = hashtags.body.aggregations.hashtags.buckets;
+                        hashtagsForSearch = [];
+                        // get just the key values for the query
+                        for (_i = 0, buckets_1 = buckets; _i < buckets_1.length; _i++) {
+                            bucket = buckets_1[_i];
+                            hashtagsForSearch.push(bucket.key);
+                        }
+                        ;
+                        return [2 /*return*/, hashtagsForSearch];
                 }
             });
         });

@@ -1,5 +1,6 @@
 import {Connection} from "tedious";
 import {Logger} from '../common';
+import dotenv = require('dotenv');
 
 export class SQLServerController{
     private static instance: SQLServerController
@@ -11,7 +12,7 @@ export class SQLServerController{
         this.log = new Logger();
         try
         {
-           this.db = new Connection({
+           this.db = new Connection( {
                 server: 'localhost',
                 authentication: {
                     type: 'default',
@@ -21,7 +22,7 @@ export class SQLServerController{
                     },
                 },
                 options: {
-                    database: 'hashtags',
+                    database: 'ArticulosDB',
                     encrypt: false,
                 }
            });

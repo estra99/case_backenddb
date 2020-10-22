@@ -77,6 +77,15 @@ export class MongoController {
         }
     }
 
+
+    public async getArticlesByHashtags(hashtagsArr:string[]): Promise<any>{
+
+       const responseFromMongo = await Articles.find({"hashtags" : { $in : hashtagsArr}});
+
+       return responseFromMongo
+
+    }
+
     public static getInstance() : MongoController
     {
         if (!this.instance)

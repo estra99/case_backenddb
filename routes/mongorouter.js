@@ -39,10 +39,11 @@ exports.__esModule = true;
 exports.MongoRouter = void 0;
 var express = require("express");
 var Controllers_1 = require("../Controllers");
+var Controllers_2 = require("../Controllers/");
 var app = express();
 exports.MongoRouter = app;
 app.get('/getHashtags', function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var init, last, response;
+    var init, last, response, list, articules;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -51,7 +52,16 @@ app.get('/getHashtags', function (req, res, next) { return __awaiter(void 0, voi
                 return [4 /*yield*/, Controllers_1.ElasticController.getInstance().get_hashtags(init, last)];
             case 1:
                 response = _a.sent();
-                res.json(response);
+                list = ["#malavibra", "#nohate", "#everyday", "#oneday", "#popular", "#otrohashtag", "#region", "#mapa", "#rojo", "#blackhole"];
+                return [4 /*yield*/, Controllers_2.MongoController.getInstance().getArticlesByHashtags(list)
+                    // redisCli.save(`mongo${init}${last}`, response)
+                    // redisCli.get()
+                ];
+            case 2:
+                articules = _a.sent();
+                // redisCli.save(`mongo${init}${last}`, response)
+                // redisCli.get()
+                res.json(articules);
                 return [2 /*return*/];
         }
     });

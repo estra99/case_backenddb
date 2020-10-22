@@ -11,6 +11,7 @@ export class ElasticController{
     {
         dotenv.config();
         this.log = new Logger();
+        // this.elasticClient = new Client({node: 'http://localhost:9200/'});
         this.elasticClient = new Client({node: process.env.ELASTIC_API});
     }
 

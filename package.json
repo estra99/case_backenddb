@@ -30,6 +30,7 @@
   "homepage": "https://github.com/estra99/case_backenddb#readme",
   "dependencies": {
     "@elastic/elasticsearch": "^7.9.1",
+    "dotenv": "^8.2.0",
     "elasticsearch": "^16.7.1",
     "express": "^4.17.1",
     "faker": "^5.1.0",

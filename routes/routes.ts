@@ -2,6 +2,7 @@ import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import {Logger} from '../common';
 import {MongoRouter} from './mongorouter';
+import {SQLServerRouter} from './sqlserverrouter'
 
 
 class Routes{
@@ -24,6 +25,7 @@ class Routes{
 
     private routes() : void {
         this.express.use('/mongodb', MongoRouter);
+        this.express.use('/sql', SQLServerRouter)
     }
 }
 

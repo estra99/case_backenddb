@@ -14,7 +14,7 @@ export class MongoController {
         this.log = new Logger();
         try
         {
-            mongoose.connect('mongodb://localhost:32772/hashtags',
+            mongoose.connect('mongodb://localhost:27017/hashtags',
             {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,

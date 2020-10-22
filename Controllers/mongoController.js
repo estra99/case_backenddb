@@ -10,7 +10,7 @@ var MongoController = /** @class */ (function () {
         var _this = this;
         this.log = new common_1.Logger();
         try {
-            mongoose.connect('mongodb://localhost:32772/hashtags', {
+            mongoose.connect('mongodb://localhost:27017/hashtags', {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
                 socketTimeoutMS: 2000

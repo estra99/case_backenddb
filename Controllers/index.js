@@ -7,8 +7,10 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
     o[k2] = m[k];
 }));
 exports.__esModule = true;
-exports.ElasticController = exports.MongoController = void 0;
+exports.SQLServerController = exports.ElasticController = exports.MongoController = void 0;
 var mongoController_1 = require("./mongoController");
 __createBinding(exports, mongoController_1, "MongoController");
 var elasticHashtagsController_1 = require("./elasticHashtagsController");
 __createBinding(exports, elasticHashtagsController_1, "ElasticController");
+var sqlserverController_1 = require("./sqlserverController");
+__createBinding(exports, sqlserverController_1, "SQLServerController");

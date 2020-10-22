@@ -62,7 +62,7 @@ export class ElasticController{
               }
             }
         });
-        return hashtags.body.ag
+        return hashtags.body.aggregations.hashtags_count.buckets
     };
 
     public async matchAll() : Promise<any> {

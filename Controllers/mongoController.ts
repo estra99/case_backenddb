@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 import { Articles, Logger } from '../common'
 import faker = require('faker');
-
+import dotenv = require('dotenv');
 const allhashtags =  ["#malavibra", "#nohate", "#everyday", "#oneday", "#popular", "#otrohashtag", "#region", "#mapa", "#rojo", "#blackhole"];
 
 export class MongoController {
@@ -11,10 +11,12 @@ export class MongoController {
 
     private constructor()
     {
+        dotenv.config();
         this.log = new Logger();
         try
         {
             mongoose.connect('mongodb://localhost:27017/hashtags',
+            // mongoose.connect(process.env.MONGO_API,
             {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,

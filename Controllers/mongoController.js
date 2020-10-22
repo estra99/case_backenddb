@@ -4,13 +4,19 @@ exports.MongoController = void 0;
 var mongoose = require("mongoose");
 var common_1 = require("../common");
 var faker = require("faker");
+var dotenv = require("dotenv");
 var allhashtags = ["#malavibra", "#nohate", "#everyday", "#oneday", "#popular", "#otrohashtag", "#region", "#mapa", "#rojo", "#blackhole"];
 var MongoController = /** @class */ (function () {
     function MongoController() {
         var _this = this;
+        dotenv.config();
         this.log = new common_1.Logger();
         try {
+<<<<<<< HEAD
             mongoose.connect('mongodb://localhost:27017/hashtags', {
+=======
+            mongoose.connect(process.env.MONGO_API, {
+>>>>>>> 5d7e6022048b44c92cce04f50d949ed534a4c88f
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
                 socketTimeoutMS: 2000

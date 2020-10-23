@@ -2,7 +2,6 @@ import App from './app';
 import * as http from 'http';
 import { Logger } from './common'
 import { MongoController } from './Controllers';
-import {SQLServerController} from './Controllers'
 import dotenv = require('dotenv');
 
 
@@ -16,7 +15,6 @@ const server = http.createServer(App);
 server.listen(port);
 
 const mongoConection = MongoController.getInstance().fillArticles();
-const sqlConnection = SQLServerController.getInstance();
 
 server.on('listening', () => {
     const addr = server.address();

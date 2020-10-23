@@ -3,22 +3,24 @@ exports.__esModule = true;
 exports.SQLServerController = void 0;
 var tedious_1 = require("tedious");
 var common_1 = require("../common");
+var dotenv = require("dotenv");
 var SQLServerController = /** @class */ (function () {
     function SQLServerController() {
         var _this = this;
+        dotenv.config();
         this.log = new common_1.Logger();
         try {
             this.db = new tedious_1.Connection({
-                server: 'localhost',
+                server: process.env.SQL_API,
                 authentication: {
                     type: 'default',
                     options: {
-                        userName: 'SA',
-                        password: '<bornToBeWild2020@1>'
+                        userName: process.env.USER_SQL,
+                        password: process.env.PASSWORD_SQL
                     }
                 },
                 options: {
-                    database: 'ArticulosDB',
+                    database: process.env.DATABASE,
                     encrypt: false
                 }
             });

@@ -9,20 +9,21 @@ export class SQLServerController{
 
     private constructor()
     {
+        dotenv.config();
         this.log = new Logger();
         try
         {
            this.db = new Connection( {
-                server: 'localhost',
+                server: process.env.SQL_API,
                 authentication: {
                     type: 'default',
                     options: {
-                        userName: 'SA',
-                        password: '<bornToBeWild2020@1>',
+                        userName: process.env.USER_SQL,
+                        password: process.env.PASSWORD_SQL,
                     },
                 },
                 options: {
-                    database: 'ArticulosDB',
+                    database: process.env.DATABASE,
                     encrypt: false,
                 }
            });

@@ -112,6 +112,7 @@ var MongoController = /** @class */ (function () {
                     case 0: return [4 /*yield*/, common_1.Articles.find({ "hashtags": { $in: hashtagsArr } })];
                     case 1:
                         responseFromMongo = _a.sent();
+                        // Redis.save(`mongo-${init}-${last}:`, responseFromMongo);
                         return [2 /*return*/, responseFromMongo];
                 }
             });

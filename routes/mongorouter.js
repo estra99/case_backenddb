@@ -40,10 +40,11 @@ exports.MongoRouter = void 0;
 var express = require("express");
 var Controllers_1 = require("../Controllers");
 var Controllers_2 = require("../Controllers/");
+var redis_1 = require("../db/redis/redis");
 var app = express();
 exports.MongoRouter = app;
 app.get('/getHashtags', function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var init, last, response, list, articules;
+    var init, last, response, cacheMongo, list, articules;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -52,17 +53,17 @@ app.get('/getHashtags', function (req, res, next) { return __awaiter(void 0, voi
                 return [4 /*yield*/, Controllers_1.ElasticController.getInstance().get_hashtags(init, last)];
             case 1:
                 response = _a.sent();
-                list = ["#malavibra", "#nohate", "#everyday", "#oneday", "#popular", "#otrohashtag", "#region", "#mapa", "#rojo", "#blackhole"];
-                return [4 /*yield*/, Controllers_2.MongoController.getInstance().getArticlesByHashtags(list)
-                    // redisCli.save(`mongo${init}${last}`, response)
-                    // redisCli.get()
-                ];
+                return [4 /*yield*/, redis_1["default"].get("mongo-" + init + "-" + last + ":")];
             case 2:
+                cacheMongo = _a.sent();
+                list = ["#malavibra", "#nohate", "#everyday", "#oneday", "#popular", "#otrohashtag", "#region", "#mapa", "#rojo", "#blackhole"];
+                if (!cacheMongo) return [3 /*break*/, 3];
+                return [2 /*return*/, res.json(cacheMongo)];
+            case 3: return [4 /*yield*/, Controllers_2.MongoController.getInstance().getArticlesByHashtags(list)];
+            case 4:
                 articules = _a.sent();
-                // redisCli.save(`mongo${init}${last}`, response)
-                // redisCli.get()
-                res.json(articules);
-                return [2 /*return*/];
+                _a.label = 5;
+            case 5: return [2 /*return*/];
         }
     });
 }); });

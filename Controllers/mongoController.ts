@@ -1,5 +1,5 @@
 import * as mongoose from 'mongoose';
-import { Article, Logger } from '../common'
+import { Articles, Logger } from '../common'
 import faker = require('faker');
 import dotenv = require('dotenv');
 import { date } from 'faker';
@@ -48,7 +48,7 @@ export class MongoController {
             {
                 const aproxHashtags = Math.trunc(Math.random()*3 + 4) / allhashtags.length;
 
-                const newPost = new Article({
+                const newPost = new Articles({
                     autor: faker.name.firstName(),
                     titulo: faker.lorem.words(7),
                     subtitulo: faker.lorem.words(3),
@@ -86,7 +86,7 @@ export class MongoController {
 
     public async getArticlesByHashtags(hashtagsArr:string[]): Promise<any>{
 
-       const responseFromMongo = await Article.find({"hashtags" : { $in : hashtagsArr}});
+       const responseFromMongo = await Articles.find({"hashtags" : { $in : hashtagsArr}});
 
        return responseFromMongo
 

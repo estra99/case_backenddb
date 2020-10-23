@@ -72,7 +72,7 @@ var MongoController = /** @class */ (function () {
             var quantity = 100;
             var _loop_1 = function () {
                 var aproxHashtags = Math.trunc(Math.random() * 3 + 4) / allhashtags.length;
-                var newPost = new common_1.Article({
+                var newPost = new common_1.Articles({
                     autor: faker.name.firstName(),
                     titulo: faker.lorem.words(7),
                     subtitulo: faker.lorem.words(3),
@@ -109,7 +109,7 @@ var MongoController = /** @class */ (function () {
             var responseFromMongo;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, common_1.Article.find({ "hashtags": { $in: hashtagsArr } })];
+                    case 0: return [4 /*yield*/, common_1.Articles.find({ "hashtags": { $in: hashtagsArr } })];
                     case 1:
                         responseFromMongo = _a.sent();
                         return [2 /*return*/, responseFromMongo];
